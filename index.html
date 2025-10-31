@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HS Beauty Salon - Your Sanctuary for Beauty and Relaxation</title>
-    <meta name="description" content="Discover HS Beauty Salon in Ungasan, Bali. We offer premium services including haircuts, hair colour, nail art, and eyelash extensions in a luxurious and relaxing environment.">
+    <title data-lang-key="seo_title">HS Beauty Salon - Your Sanctuary for Beauty and Relaxation</title>
+    <meta name="description" data-lang-key="seo_description" content="Discover HS Beauty Salon in Ungasan, Bali. We offer premium services including haircuts, hair colour, nail art, and eyelash extensions in a luxurious and relaxing environment.">
     
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1pKlcWD3pjm74DcMjlkXBmjwuu3E2ARfC">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta property="og:site_name" content="HS.Beauty Salon">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[REPLACE_WITH_YOUR_CANONICAL_URL]"> 
+    
+    <meta property="og:title" id="ogTitle" content="HS Beauty Salon - Your Sanctuary for Beauty and Relaxation">
+    <meta property="og:description" id="ogDescription" content="Discover HS Beauty Salon in Ungasan, Bali. We offer premium services including haircuts, hair colour, nail art, and eyelash extensions in a luxurious and relaxing environment.">
+    <meta property="og:image" id="ogImage" content="https://lh3.googleusercontent.com/d/1OaLGvpw9GTGz4souTLgKoCk91wG9s5-U"> 
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="[REPLACE_WITH_YOUR_CANONICAL_URL]"> 
+    <meta name="twitter:title" id="twitterTitle" content="HS Beauty Salon - Your Sanctuary for Beauty and Relaxation">
+    <meta name="twitter:description" id="twitterDescription" content="Discover HS Beauty Salon in Ungasan, Bali. We offer premium services including haircuts, hair colour, nail art, and eyelash extensions in a luxurious and relaxing environment.">
+    <meta name="twitter:image" id="twitterImage" content="https://lh3.googleusercontent.com/d/1OaLGvpw9GTGz4souTLgKoCk91wG9s5-U">
+    
+    <link rel="alternate" hreflang="en" href="[REPLACE_WITH_YOUR_CANONICAL_URL]?lang=en" />
+    <link rel="alternate" hreflang="id" href="[REPLACE_WITH_YOUR_CANONICAL_URL]?lang=id" />
+    <link rel="alternate" hreflang="x-default" href="[REPLACE_WITH_YOUR_CANONICAL_URL]" />
+
 
     <style>
         :root {
@@ -194,7 +215,13 @@
         .nav-link:hover::after, .nav-link.active::after { width: 100%; }
         .nav-link:hover, .nav-link.active { color: var(--text-primary); }
         
-        .theme-switcher {
+        /* Language and Theme Switcher Styling */
+        .utility-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .theme-switcher, .lang-switcher {
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-secondary);
@@ -207,6 +234,34 @@
         .theme-switcher .fa-sun { display: none; }
         body.dark-theme .theme-switcher .fa-sun { display: inline-block; }
         body.dark-theme .theme-switcher .fa-moon { display: none; }
+        
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .lang-option {
+            padding: 5px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        .lang-option.active-lang {
+            background-color: var(--accent-color);
+            color: var(--white-color);
+            border-color: var(--accent-color);
+        }
+        .lang-option:not(.active-lang):hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        /* Flag Icons (Styling for a simple text-based flag look) */
+        .flag-icon { font-size: 1.1rem; margin-right: 5px; }
 
         .hamburger-menu {
             display: none;
@@ -771,6 +826,12 @@
             .modal-content h3 { font-size: 2rem; margin-bottom: 25px; }
             .lightbox-close-btn { top: 15px; right: 20px; font-size: 2.8rem; }
             .floating-btn { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 1.8rem; }
+
+            .utility-group { /* Move utility group into hamburger area on mobile */
+                position: absolute;
+                top: 25px;
+                left: 25px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -788,7 +849,7 @@
         }
     </style>
 </head>
-<body>
+<body data-lang="en">
 
     <div class="floating-btn open-modal-btn" aria-label="Book an Appointment">
         <i class="fab fa-whatsapp"></i>
@@ -803,15 +864,21 @@
             <nav>
                 <ul class="nav-menu">
                     <li class="nav-item nav-close-item"><span class="nav-close-btn">×</span></li>
-                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#services" class="nav-link">Pricelist</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="#home" class="nav-link" data-lang-key="nav_home">Home</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link" data-lang-key="nav_pricelist">Pricelist</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link" data-lang-key="nav_about">About Us</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link" data-lang-key="nav_gallery">Gallery</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" data-lang-key="nav_contact">Contact</a></li>
                     <li class="nav-item">
-                        <div class="theme-switcher" id="themeSwitcher" title="Toggle Theme">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sun"></i>
+                        <div class="utility-group">
+                             <div class="lang-switcher" id="langSwitcher" title="Change Language">
+                                <span data-lang="en" class="lang-option active-lang" title="English"><i class="fas fa-globe flag-icon"></i>EN</span>
+                                <span data-lang="id" class="lang-option" title="Bahasa Indonesia"><i class="fas fa-globe flag-icon"></i>ID</span>
+                            </div>
+                            <div class="theme-switcher" id="themeSwitcher" title="Toggle Theme">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -825,18 +892,18 @@
     <main>
         <section class="hero" id="home">
             <div class="hero-content">
-                <h1>Your Sanctuary for Beauty and Relaxation</h1>
-                <p>Rediscover your charm at HS Beauty Salon, where expertise meets luxury.</p>
-                <button class="btn btn-primary open-modal-btn">Book an Appointment</button>
+                <h1 data-lang-key="hero_h1">Your Sanctuary for Beauty and Relaxation</h1>
+                <p data-lang-key="hero_p">Rediscover your charm at HS Beauty Salon, where expertise meets luxury.</p>
+                <button class="btn btn-primary open-modal-btn" data-lang-key="btn_book">Book an Appointment</button>
             </div>
         </section>
 
         <section id="services" class="section">
             <div class="container">
-                <h2 class="section-title">Beauty Treatment & Pricelist</h2>
+                <h2 class="section-title" data-lang-key="section_services_title">Beauty Treatment & Pricelist</h2>
                 <div class="pricelist-container">
                     <div class="pricelist-category">
-                        <h3>Nails</h3>
+                        <h3 data-lang-key="category_nails">Nails</h3>
                         <div class="service-item"><span class="service-name">Express manicure/pedicure buff shine</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">Express manicure/pedicure simple gel</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">Luxe Pedicure/manicure</span><span class="service-price"></span></div>
@@ -848,7 +915,7 @@
                         <div class="service-item"><span class="service-name">Removal</span><span class="service-price"></span></div>
                     </div>
                     <div class="pricelist-category">
-                        <h3>Eyelash</h3>
+                        <h3 data-lang-key="category_eyelash">Eyelash</h3>
                         <div class="service-item"><span class="service-name">Classic lash extension</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">2D Lash Extension</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">3D lash extension</span><span class="service-price"></span></div>
@@ -857,7 +924,7 @@
                         <div class="service-item"><span class="service-name">Removal eyelash</span><span class="service-price"></span></div>
                     </div>
                     <div class="pricelist-category">
-                        <h3>Hair Treatment</h3>
+                        <h3 data-lang-key="category_hair_treatment">Hair Treatment</h3>
                         <div class="service-item"><span class="service-name">Hair cut + hair straightener</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">Cut+wash+rinse mask+hair straightener</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">Wash + rinse mask + hair straightener</span><span class="service-price"></span></div>
@@ -868,7 +935,7 @@
                         <div class="service-item"><span class="service-name">Keratin smoothing</span><span class="service-price"></span></div>
                     </div>
                     <div class="pricelist-category">
-                        <h3>Color</h3>
+                        <h3 data-lang-key="category_color">Color</h3>
                         <div class="service-item"><span class="service-name">Black hair color</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">Basic color without bleaching</span><span class="service-price"></span></div>
                         <div class="service-item"><span class="service-name">Hairlight color + full color</span><span class="service-price"></span></div>
@@ -881,41 +948,41 @@
             <div class="container about-content">
                 <div class="about-image"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1929&auto=format&fit=crop" alt="Elegant interior of HS Beauty Salon"></div>
                 <div class="about-text">
-                    <h3>The Story Behind HS Beauty</h3>
-                    <p>Founded in 2025, HS Beauty Salon was born from a passion to empower every woman through personalized beauty. We believe every detail matters in creating the ultimate relaxation experience.</p>
-                    <p>Our mission is to be the most trusted beauty destination in South Bali, known for exceptional quality, innovative techniques, and an unforgettable customer journey. We use only premium products to ensure you look and feel your absolute best.</p>
-                    <a href="#contact" class="btn btn-primary btn-outline">Learn More</a>
+                    <h3 data-lang-key="about_h3">The Story Behind HS Beauty</h3>
+                    <p data-lang-key="about_p1">Founded in 2025, HS Beauty Salon was born from a passion to empower every woman through personalized beauty. We believe every detail matters in creating the ultimate relaxation experience.</p>
+                    <p data-lang-key="about_p2">Our mission is to be the most trusted beauty destination in South Bali, known for exceptional quality, innovative techniques, and an unforgettable customer journey. We use only premium products to ensure you look and feel your absolute best.</p>
+                    <a href="#contact" class="btn btn-primary btn-outline" data-lang-key="btn_learn_more">Learn More</a>
                 </div>
             </div>
         </section>
 
         <section id="gallery" class="section">
             <div class="container">
-                <h2 class="section-title">Our Best Work</h2>
+                <h2 class="section-title" data-lang-key="section_gallery_title">Our Best Work</h2>
                 <div class="gallery-grid" id="galleryImages"></div>
             </div>
         </section>
         
         <section id="testimonials" class="section">
             <div class="container">
-                <h2 class="section-title">What Our Clients Say</h2>
+                <h2 class="section-title" data-lang-key="section_testimonials_title">What Our Clients Say</h2>
                 <div class="testimonial-grid">
                         <div class="testimonial-card">
                             <span class="quote-icon"><i class="fas fa-quote-right"></i></span>
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p>"Absolutely the best salon experience in Bali! The staff are so professional, and my hair colour has never looked better. Highly recommended!"</p>
+                            <p data-lang-key="testimonial_1">"Absolutely the best salon experience in Bali! The staff are so professional, and my hair colour has never looked better. Highly recommended!"</p>
                             <div class="author">- Jessica L.</div>
                         </div>
                         <div class="testimonial-card">
                             <span class="quote-icon"><i class="fas fa-quote-right"></i></span>
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p>"I came for the nail art and was blown away by the detail and creativity. The salon is beautiful and so clean. I will definitely be back!"</p>
+                            <p data-lang-key="testimonial_2">"I came for the nail art and was blown away by the detail and creativity. The salon is beautiful and so clean. I will definitely be back!"</p>
                             <div class="author">- Amanda S.</div>
                         </div>
                         <div class="testimonial-card">
                             <span class="quote-icon"><i class="fas fa-quote-right"></i></span>
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p>"My eyelash extensions are perfect. They feel so light and look completely natural. The whole process was so relaxing, I almost fell asleep!"</p>
+                            <p data-lang-key="testimonial_3">"My eyelash extensions are perfect. They feel so light and look completely natural. The whole process was so relaxing, I almost fell asleep!"</p>
                             <div class="author">- Chloe R.</div>
                         </div>
                 </div>
@@ -924,11 +991,11 @@
 
         <section id="contact" class="section">
             <div class="container">
-                <h2 class="section-title">Visit Us</h2>
+                <h2 class="section-title" data-lang-key="section_contact_title">Visit Us</h2>
                 <div class="contact-wrapper">
                     <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <p>Ready for your transformation? Contact us to schedule your appointment or visit our salon in the heart of Ungasan. We look forward to pampering you!</p>
+                        <h3 data-lang-key="contact_h3">Get In Touch</h3>
+                        <p data-lang-key="contact_p">Ready for your transformation? Contact us to schedule your appointment or visit our salon in the heart of Ungasan. We look forward to pampering you!</p>
                         <div class="contact-item">
                             <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
                             <span>Jl. Wibisana Ungasan, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80361</span>
@@ -943,12 +1010,12 @@
                         </div>
                          <div class="contact-item">
                             <div class="icon"><i class="fas fa-clock"></i></div>
-                            <span>Mon - Sat: 9:00 AM - 7:00 PM <br> Sunday: Closed</span>
+                            <span data-lang-key="contact_hours">Mon - Sat: 9:00 AM - 7:00 PM <br> Sunday: Closed</span>
                         </div>
                     </div>
                     <div class="map-container">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.549751506977!2d115.16631559999999!3d-8.8282983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd25b77b6abd1a1%3A0xd18c85b988ba88f2!2sHS%20BEAUTY%20SALON!5e0!3m2!1sid!2sid!4v1757088566434!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <a href="https://google.com/maps?rlz=1C5CHFA_enID1173ID1173&um=1&ie=UTF-8&fb=1&gl=id&sa=X&geocode=KaHRq7Z3W9ItMfKIuoi5hYzR&daddr=Jl.+Wibisana+Ungasan,+Ungasan,+Kec.+Kuta+Sel.,+Kabupaten+Badung,+Bali+80361" target="_blank" class="btn btn-primary btn-direction">Get Directions</a>
+                        <a href="https://google.com/maps?rlz=1C5CHFA_enID1173ID1173&um=1&ie=UTF-8&fb=1&gl=id&sa=X&geocode=KaHRq7Z3W9ItMfKIuoi5hYzR&daddr=Jl.+Wibisana+Ungasan,+Ungasan,+Kec.+Kuta+Sel.,+Kabupaten+Badung,+Bali+80361" target="_blank" class="btn btn-primary btn-direction" data-lang-key="btn_directions">Get Directions</a>
                     </div>
                 </div>
             </div>
@@ -962,32 +1029,32 @@
                 <a href="https://www.instagram.com/hsbeautysalonbali/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/62881037381155" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p>© 2025 HS Beauty Salon. All Rights Reserved.</p>
+            <p data-lang-key="footer_copyright">© 2025 HS Beauty Salon. All Rights Reserved.</p>
         </div>
     </footer>
 
     <div class="modal-overlay" id="appointmentModal">
         <div class="modal-content">
             <span class="modal-close-btn">×</span>
-            <h3>Book Your Appointment</h3>
+            <h3 data-lang-key="modal_h3">Book Your Appointment</h3>
             <form id="bookingForm">
                 <div class="form-group">
-                    <label for="customerName"><i class="fas fa-user"></i> Your Name</label>
-                    <input type="text" id="customerName" placeholder="Enter your name" required>
+                    <label for="customerName"><i class="fas fa-user"></i> <span data-lang-key="form_name_label">Your Name</span></label>
+                    <input type="text" id="customerName" data-lang-key-placeholder="form_name_placeholder" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
-                    <label for="bookingDate"><i class="fas fa-calendar-alt"></i> Preferred Date</label>
+                    <label for="bookingDate"><i class="fas fa-calendar-alt"></i> <span data-lang-key="form_date_label">Preferred Date</span></label>
                     <input type="date" id="bookingDate" required>
                 </div>
                 <div class="form-group">
-                    <label for="bookingTime"><i class="fas fa-clock"></i> Preferred Time</label>
+                    <label for="bookingTime"><i class="fas fa-clock"></i> <span data-lang-key="form_time_label">Preferred Time</span></label>
                     <input type="time" id="bookingTime" required>
                 </div>
                 <div class="form-group">
-                    <label for="serviceSelect"><i class="fas fa-cut"></i> Select a Service</label>
+                    <label for="serviceSelect"><i class="fas fa-cut"></i> <span data-lang-key="form_service_label">Select a Service</span></label>
                     <select id="serviceSelect" name="serviceSelect" required>
-                        <option value="">-- Choose a Service --</option>
-                        <optgroup label="Nails">
+                        <option value="" data-lang-key="form_service_default">-- Choose a Service --</option>
+                        <optgroup label="Nails" data-lang-key="category_nails"></optgroup>
                             <option value="Express manicure/pedicure buff shine">Express manicure/pedicure buff shine</option>
                             <option value="Express manicure/pedicure simple gel">Express manicure/pedicure simple gel</option>
                             <option value="Luxe Pedicure/manicure">Luxe Pedicure/manicure</option>
@@ -998,7 +1065,7 @@
                             <option value="Nail art">Nail art</option>
                             <option value="Removal">Removal</option>
                         </optgroup>
-                        <optgroup label="Eyelash">
+                        <optgroup label="Eyelash" data-lang-key="category_eyelash">
                             <option value="Classic lash extension">Classic lash extension</option>
                             <option value="2D Lash Extension">2D Lash Extension</option>
                             <option value="3D lash extension">3D lash extension</option>
@@ -1006,7 +1073,7 @@
                             <option value="Russian Volume Lash">Russian Volume Lash</option>
                             <option value="Removal eyelash">Removal eyelash</option>
                         </optgroup>
-                        <optgroup label="Hair Treatment">
+                        <optgroup label="Hair Treatment" data-lang-key="category_hair_treatment">
                             <option value="Hair cut + hair straightener">Hair cut + hair straightener</option>
                             <option value="Cut+wash+rinse mask+hair straightener">Cut+wash+rinse mask+hair straightener</option>
                             <option value="Wash + rinse mask + hair straightener">Wash + rinse mask + hair straightener</option>
@@ -1016,15 +1083,15 @@
                             <option value="Keratin treatment">Keratin treatment</option>
                             <option value="Keratin smoothing">Keratin smoothing</option>
                         </optgroup>
-                        <optgroup label="Color">
+                        <optgroup label="Color" data-lang-key="category_color">
                             <option value="Black hair color">Black hair color</option>
                             <option value="Basic color without bleaching">Basic color without bleaching</option>
                             <option value="Hairlight color + full color">Hairlight color + full color</option>
                         </optgroup>
-                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="General Inquiry" data-lang-key="form_general_inquiry">General Inquiry</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Book on WhatsApp</button>
+                <button type="submit" class="btn btn-primary" data-lang-key="btn_whatsapp_book"><i class="fab fa-whatsapp"></i> Book on WhatsApp</button>
             </form>
         </div>
     </div>
@@ -1036,9 +1103,192 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const themeSwitcher = document.getElementById('themeSwitcher');
+            
+            // ====================================================================
+            // 1. LANGUAGE AND TRANSLATION LOGIC
+            // ====================================================================
+            const translations = {
+                en: {
+                    // SEO
+                    seo_title: 'HS Beauty Salon - Your Sanctuary for Beauty and Relaxation',
+                    seo_description: 'Discover HS Beauty Salon in Ungasan, Bali. We offer premium services including haircuts, hair colour, nail art, and eyelash extensions in a luxurious and relaxing environment.',
+                    // Navigation
+                    nav_home: 'Home',
+                    nav_pricelist: 'Pricelist',
+                    nav_about: 'About Us',
+                    nav_gallery: 'Gallery',
+                    nav_contact: 'Contact',
+                    // Hero
+                    hero_h1: 'Your Sanctuary for Beauty and Relaxation',
+                    hero_p: 'Rediscover your charm at HS Beauty Salon, where expertise meets luxury.',
+                    btn_book: 'Book an Appointment',
+                    // Services
+                    section_services_title: 'Beauty Treatment & Pricelist',
+                    category_nails: 'Nails',
+                    category_eyelash: 'Eyelash',
+                    category_hair_treatment: 'Hair Treatment',
+                    category_color: 'Color',
+                    // About
+                    about_h3: 'The Story Behind HS Beauty',
+                    about_p1: 'Founded in 2025, HS Beauty Salon was born from a passion to empower every woman through personalized beauty. We believe every detail matters in creating the ultimate relaxation experience.',
+                    about_p2: 'Our mission is to be the most trusted beauty destination in South Bali, known for exceptional quality, innovative techniques, and an unforgettable customer journey. We use only premium products to ensure you look and feel your absolute best.',
+                    btn_learn_more: 'Learn More',
+                    // Gallery
+                    section_gallery_title: 'Our Best Work',
+                    // Testimonials
+                    section_testimonials_title: 'What Our Clients Say',
+                    testimonial_1: '"Absolutely the best salon experience in Bali! The staff are so professional, and my hair colour has never looked better. Highly recommended!"',
+                    testimonial_2: '"I came for the nail art and was blown away by the detail and creativity. The salon is beautiful and so clean. I will definitely be back!"',
+                    testimonial_3: '"My eyelash extensions are perfect. They feel so light and look completely natural. The whole process was so relaxing, I almost fell asleep!"',
+                    // Contact
+                    section_contact_title: 'Visit Us',
+                    contact_h3: 'Get In Touch',
+                    contact_p: 'Ready for your transformation? Contact us to schedule your appointment or visit our salon in the heart of Ungasan. We look forward to pampering you!',
+                    contact_hours: 'Mon - Sat: 9:00 AM - 7:00 PM <br> Sunday: Closed',
+                    btn_directions: 'Get Directions',
+                    // Footer
+                    footer_copyright: '© 2025 HS Beauty Salon. All Rights Reserved.',
+                    // Modal/Form
+                    modal_h3: 'Book Your Appointment',
+                    form_name_label: 'Your Name',
+                    form_name_placeholder: 'Enter your name',
+                    form_date_label: 'Preferred Date',
+                    form_time_label: 'Preferred Time',
+                    form_service_label: 'Select a Service',
+                    form_service_default: '-- Choose a Service --',
+                    form_general_inquiry: 'General Inquiry',
+                    btn_whatsapp_book: 'Book on WhatsApp',
+                    alert_fill_form: 'Please fill in all the booking details (Name, Date, Time, and Service).',
+                },
+                id: {
+                    // SEO
+                    seo_title: 'HS Beauty Salon - Tempat Kecantikan dan Relaksasi Anda',
+                    seo_description: 'Temukan HS Beauty Salon di Ungasan, Bali. Kami menawarkan layanan premium termasuk potong rambut, pewarnaan rambut, nail art, dan ekstensi bulu mata dalam lingkungan yang mewah dan menenangkan.',
+                    // Navigation
+                    nav_home: 'Beranda',
+                    nav_pricelist: 'Daftar Harga',
+                    nav_about: 'Tentang Kami',
+                    nav_gallery: 'Galeri',
+                    nav_contact: 'Kontak',
+                    // Hero
+                    hero_h1: 'Tempat Kecantikan dan Relaksasi Anda',
+                    hero_p: 'Temukan kembali pesona Anda di HS Beauty Salon, tempat keahlian bertemu kemewahan.',
+                    btn_book: 'Pesan Janji Temu',
+                    // Services
+                    section_services_title: 'Perawatan Kecantikan & Daftar Harga',
+                    category_nails: 'Kuku',
+                    category_eyelash: 'Bulu Mata',
+                    category_hair_treatment: 'Perawatan Rambut',
+                    category_color: 'Pewarnaan',
+                    // About
+                    about_h3: 'Kisah di Balik HS Beauty',
+                    about_p1: 'Didirikan pada tahun 2025, HS Beauty Salon lahir dari hasrat untuk memberdayakan setiap wanita melalui kecantikan yang dipersonalisasi. Kami percaya setiap detail penting dalam menciptakan pengalaman relaksasi terbaik.',
+                    about_p2: 'Misi kami adalah menjadi destinasi kecantikan paling terpercaya di Bali Selatan, dikenal karena kualitas luar biasa, teknik inovatif, dan perjalanan pelanggan yang tak terlupakan. Kami hanya menggunakan produk premium untuk memastikan Anda tampil dan merasa terbaik.',
+                    btn_learn_more: 'Pelajari Lebih Lanjut',
+                    // Gallery
+                    section_gallery_title: 'Karya Terbaik Kami',
+                    // Testimonials
+                    section_testimonials_title: 'Apa Kata Klien Kami',
+                    testimonial_1: '"Pengalaman salon terbaik di Bali! Staf sangat profesional, dan warna rambut saya belum pernah sebagus ini. Sangat direkomendasikan!"',
+                    testimonial_2: '"Saya datang untuk nail art dan terkesima dengan detail dan kreativitasnya. Salonnya indah dan sangat bersih. Saya pasti akan kembali!"',
+                    testimonial_3: '"Ekstensi bulu mata saya sempurna. Terasa ringan dan terlihat alami. Seluruh prosesnya sangat menenangkan, saya hampir tertidur!"',
+                    // Contact
+                    section_contact_title: 'Kunjungi Kami',
+                    contact_h3: 'Hubungi Kami',
+                    contact_p: 'Siap untuk transformasi Anda? Hubungi kami untuk menjadwalkan janji temu Anda atau kunjungi salon kami di jantung Ungasan. Kami menantikan untuk memanjakan Anda!',
+                    contact_hours: 'Sen - Sab: 9:00 - 19:00 <br> Minggu: Tutup',
+                    btn_directions: 'Dapatkan Petunjuk Arah',
+                    // Footer
+                    footer_copyright: '© 2025 HS Beauty Salon. Semua Hak Dilindungi.',
+                    // Modal/Form
+                    modal_h3: 'Pesan Janji Temu Anda',
+                    form_name_label: 'Nama Anda',
+                    form_name_placeholder: 'Masukkan nama Anda',
+                    form_date_label: 'Tanggal Pilihan',
+                    form_time_label: 'Waktu Pilihan',
+                    form_service_label: 'Pilih Layanan',
+                    form_service_default: '-- Pilih Layanan --',
+                    form_general_inquiry: 'Pertanyaan Umum',
+                    btn_whatsapp_book: 'Pesan via WhatsApp',
+                    alert_fill_form: 'Mohon isi semua detail pemesanan (Nama, Tanggal, Waktu, dan Layanan).',
+                }
+            };
+
+            const langSwitcher = document.getElementById('langSwitcher');
+            const langOptions = document.querySelectorAll('.lang-option');
             const body = document.body;
 
+            // Get the language from localStorage or default to 'en'
+            let currentLang = localStorage.getItem('lang') || 'en';
+            
+            function updateContent(lang) {
+                body.setAttribute('data-lang', lang);
+                document.documentElement.lang = lang; // Update HTML lang attribute
+
+                // Update text content with data-lang-key
+                document.querySelectorAll('[data-lang-key]').forEach(el => {
+                    const key = el.getAttribute('data-lang-key');
+                    if (translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+
+                // Update placeholders and titles
+                document.querySelectorAll('[data-lang-key-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-lang-key-placeholder');
+                    if (translations[lang][key]) {
+                        el.placeholder = translations[lang][key];
+                    }
+                });
+                
+                // Update SEO title and description
+                const seoTitle = translations[lang]['seo_title'];
+                const seoDescription = translations[lang]['seo_description'];
+                
+                document.title = seoTitle;
+                document.querySelector('meta[name="description"]').content = seoDescription;
+                
+                // Update Open Graph (for social media share title/description)
+                document.getElementById('ogTitle').content = seoTitle;
+                document.getElementById('ogDescription').content = seoDescription;
+                document.getElementById('twitterTitle').content = seoTitle;
+                document.getElementById('twitterDescription').content = seoDescription;
+
+
+                // Update the active class on the switcher
+                langOptions.forEach(option => {
+                    option.classList.remove('active-lang');
+                    if (option.getAttribute('data-lang') === lang) {
+                        option.classList.add('active-lang');
+                    }
+                });
+                
+                // Update optgroup labels
+                document.querySelectorAll('optgroup').forEach(group => {
+                    const key = group.getAttribute('data-lang-key');
+                    if (translations[lang][key]) {
+                         group.label = translations[lang][key];
+                    }
+                });
+            }
+
+            langSwitcher.addEventListener('click', (e) => {
+                const newLang = e.target.closest('.lang-option')?.getAttribute('data-lang');
+                if (newLang && newLang !== currentLang) {
+                    currentLang = newLang;
+                    localStorage.setItem('lang', newLang);
+                    updateContent(newLang);
+                }
+            });
+            
+            // Initial load for language
+            updateContent(currentLang);
+
+
+            // ====================================================================
+            // 2. THEME SWITCHER LOGIC (kept from original)
+            // ====================================================================
+            const themeSwitcher = document.getElementById('themeSwitcher');
             const setTheme = (theme) => {
                 if (theme === 'dark') {
                     body.classList.add('dark-theme');
@@ -1058,7 +1308,10 @@
             if (savedTheme) {
                 setTheme(savedTheme);
             }
-
+            
+            // ====================================================================
+            // 3. MOBILE MENU LOGIC (kept from original)
+            // ====================================================================
             const hamburger = document.querySelector('.hamburger-menu');
             const navMenu = document.querySelector('.nav-menu');
             const navCloseBtn = document.querySelector('.nav-close-btn');
@@ -1074,6 +1327,9 @@
                 link.addEventListener('click', closeNav);
             });
 
+            // ====================================================================
+            // 4. HERO BANNER ROTATION & GALLERY SETUP (modified for random share)
+            // ====================================================================
             const heroSection = document.getElementById('home');
             const heroBannerImages = ['https://lh3.googleusercontent.com/d/1OaLGvpw9GTGz4souTLgKoCk91wG9s5-U', 'https://lh3.googleusercontent.com/d/1nE8_YNMh20vaq_4OMJQyjBBQqtD9nXYG', 'https://lh3.googleusercontent.com/d/1K_i9i8AY2MYzyJKV4HgGRJJ-DeAkMS76'];
             let currentHeroImageIndex = 0;
@@ -1083,7 +1339,81 @@
             }
             changeHeroBanner(); 
             setInterval(changeHeroBanner, 5000); 
+            
+            // Full list of gallery images
+            const galleryImagesSrc = [
+                'https://lh3.googleusercontent.com/d/1OaLGvpw9GTGz4souTLgKoCk91wG9s5-U', 
+                'https://lh3.googleusercontent.com/d/1nE8_YNMh20vaq_4OMJQyjBBQqtD9nXYG', 
+                'https://lh3.googleusercontent.com/d/1K_i9i8AY2MYzyJKV4HgGRJJ-DeAkMS76', 
+                'https://lh3.googleusercontent.com/d/1Woe4fXFXkYZWubrk0BycNOXyYe8gc4jl',
+                'https://lh3.googleusercontent.com/d/1stVcc3OU5bV4UGc_RgtT-D6Eh4DUmtVC',
+                'https://lh3.googleusercontent.com/d/1qNnaDfaMGboNgfG9xsY68RsQwOk4QL4X',
+                'https://lh3.googleusercontent.com/d/1Srzo3nEKwxOfY-HZHSRSOBRSZMXmbuD9',
+                'https://lh3.googleusercontent.com/d/1GpE3-0ERL1oyahGnXrFK9vjuI_Mggyqf',
+                'https://lh3.googleusercontent.com/d/10GJ2hU7NCB3lQsAgHpEVpFiSM9GEuW4B',
+                'https://lh3.googleusercontent.com/d/1alJq-5KLyiy3XH4g1ZI0if5vVFbvGAET',
+                'https://lh3.googleusercontent.com/d/10ZceC9ScH5URdKBENiFgCUwBTV1uiPyZ',
+                'https://lh3.googleusercontent.com/d/14PNGsaljID9AGah0BiXwSBp_q1v42k4u',
+                'https://lh3.googleusercontent.com/d/1zq4GvPa0DrlFlJeMaMjumalG5KD8SbSA'
+            ];
 
+            // Function to shuffle array (for random gallery display)
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+            
+            // Randomly select one image for the social media meta tags
+            function setRandomShareImage() {
+                const randomIndex = Math.floor(Math.random() * galleryImagesSrc.length);
+                const randomImageURL = galleryImagesSrc[randomIndex];
+                
+                const ogImage = document.getElementById('ogImage');
+                const twitterImage = document.getElementById('twitterImage');
+
+                // Update the meta tags dynamically. Note: This may not work for crawlers 
+                // that don't execute JavaScript (like WhatsApp or Facebook scrapers on first share).
+                if (ogImage) ogImage.content = randomImageURL;
+                if (twitterImage) twitterImage.content = randomImageURL;
+            }
+
+            // Execute the random image selection
+            setRandomShareImage();
+
+            // Populate gallery
+            const galleryGrid = document.getElementById('galleryImages');
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const lightboxCloseBtn = document.querySelector('.lightbox-close-btn');
+
+            shuffleArray(galleryImagesSrc); // Shuffle for initial gallery presentation
+            galleryImagesSrc.forEach(src => {
+                const div = document.createElement('div');
+                div.classList.add('gallery-item');
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = "HS Beauty Salon Work";
+                div.appendChild(img);
+                galleryGrid.appendChild(div);
+            });
+
+            galleryGrid.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    lightboxImg.src = e.target.src;
+                    lightbox.classList.add('active');
+                }
+            });
+
+            const closeLightbox = () => lightbox.classList.remove('active');
+            if(lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+            if(lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+
+
+            // ====================================================================
+            // 5. APPOINTMENT MODAL LOGIC (kept from original)
+            // ====================================================================
             const modalOverlay = document.getElementById('appointmentModal');
             const openModalBtns = document.querySelectorAll('.open-modal-btn');
             const closeModalBtn = document.querySelector('.modal-close-btn');
@@ -1108,13 +1438,17 @@
                 const bookingTime = document.getElementById('bookingTime').value;
                 const selectedService = document.getElementById('serviceSelect').value;
                 
+                const alertMessageKey = 'alert_fill_form';
+                const alertMessage = translations[currentLang][alertMessageKey];
+
                 if (!customerName || !bookingDate || !bookingTime || !selectedService || selectedService === "") {
-                    alert('Please fill in all the booking details (Name, Date, Time, and Service).');
+                    alert(alertMessage);
                     return;
                 }
                 
                 const phoneNumber = '62881037381155';
                 
+                // WhatsApp message remains in Indonesian for local staff
                 const message = `Halo HS Beauty Salon, saya ingin memesan jadwal.\n\n*Nama:* ${customerName}\n*Tanggal:* ${bookingDate}\n*Jam:* ${bookingTime}\n*Layanan:* ${selectedService}\n\nMohon konfirmasi ketersediaannya. Terima kasih!`;
                 
                 const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -1123,59 +1457,9 @@
                 closeModal();
             });
 
-            // --- PERUBAHAN DIMULAI DI SINI ---
-            const galleryImagesSrc = [
-                'https://lh3.googleusercontent.com/d/1OaLGvpw9GTGz4souTLgKoCk91wG9s5-U', 
-                'https://lh3.googleusercontent.com/d/1nE8_YNMh20vaq_4OMJQyjBBQqtD9nXYG', 
-                'https://lh3.googleusercontent.com/d/1K_i9i8AY2MYzyJKV4HgGRJJ-DeAkMS76', 
-                
-                'https://lh3.googleusercontent.com/d/1Woe4fXFXkYZWubrk0BycNOXyYe8gc4jl',
-                'https://lh3.googleusercontent.com/d/1stVcc3OU5bV4UGc_RgtT-D6Eh4DUmtVC',
-                'https://lh3.googleusercontent.com/d/1qNnaDfaMGboNgfG9xsY68RsQwOk4QL4X',
-                'https://lh3.googleusercontent.com/d/1Srzo3nEKwxOfY-HZHSRSOBRSZMXmbuD9',
-                'https://lh3.googleusercontent.com/d/1GpE3-0ERL1oyahGnXrFK9vjuI_Mggyqf',
-                'https://lh3.googleusercontent.com/d/10GJ2hU7NCB3lQsAgHpEVpFiSM9GEuW4B',
-                'https://lh3.googleusercontent.com/d/1alJq-5KLyiy3XH4g1ZI0if5vVFbvGAET',
-                'https://lh3.googleusercontent.com/d/10ZceC9ScH5URdKBENiFgCUwBTV1uiPyZ',
-                'https://lh3.googleusercontent.com/d/14PNGsaljID9AGah0BiXwSBp_q1v42k4u',
-                'https://lh3.googleusercontent.com/d/1zq4GvPa0DrlFlJeMaMjumalG5KD8SbSA'
-            ];
-            // --- PERUBAHAN BERAKHIR DI SINI ---
-
-            const galleryGrid = document.getElementById('galleryImages');
-            const lightbox = document.getElementById('imageLightbox');
-            const lightboxImg = document.getElementById('lightboxImage');
-            const lightboxCloseBtn = document.querySelector('.lightbox-close-btn');
-
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-            }
-
-            shuffleArray(galleryImagesSrc);
-            galleryImagesSrc.forEach(src => {
-                const div = document.createElement('div');
-                div.classList.add('gallery-item');
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = "HS Beauty Salon Work";
-                div.appendChild(img);
-                galleryGrid.appendChild(div);
-            });
-
-            galleryGrid.addEventListener('click', (e) => {
-                if (e.target.tagName === 'IMG') {
-                    lightboxImg.src = e.target.src;
-                    lightbox.classList.add('active');
-                }
-            });
-
-            const closeLightbox = () => lightbox.classList.remove('active');
-            if(lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
-            if(lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
-
+            // ====================================================================
+            // 6. SCROLL SPY (kept from original)
+            // ====================================================================
             const sections = document.querySelectorAll('main section');
             const navLinks = document.querySelectorAll('.nav-link');
 
